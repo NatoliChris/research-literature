@@ -23,6 +23,28 @@ Citation:
 
 ```
 
+---
+
+## Summary
+
+### Motivation:
+
+- No existing BFT algorithm benchmarking framework.
+- There are many existing BFT algorithms that have been developed.
+
+### Problem:
+
+- BFT algorithms are complex to implement, there have been many algorithms developed.
+- There is no way of comparing and evaluating the performance of BFT algorithms in practice.
+
+### Contribution:
+
+- The **FIRST** BFT benchmarking framework.
+- Framework tests a number of implementations.
+- Also tests using a range of different byzantine fault behaviours.
+
+---
+
 ## Intro
 
 * Large amount of work to improve performance with message rounds and crypto operations.
