@@ -9,3 +9,4 @@ I will also be heavily referencing consensus and distributed computing literatur
 ## Paper Index
 
 - [BFT Bench](papers/bftbench_gupta.md)
+- [Bitcoin-NG](papers/bitcoin_ng.md)
