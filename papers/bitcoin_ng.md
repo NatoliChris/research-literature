@@ -35,7 +35,7 @@ Citation:
 - Introduces the Bitcoin-NG protocol.
 	- Improves bitcoin performance while keeping same assumptions.
 	- ``//TODO discuss more about protocol``
-- Introduces the first quantatative metrics for performance evaluation of Bitcoin.
+- Introduces the first quantitative metrics for performance evaluation of Bitcoin.
 - Quantifies scalability and performance of the Bitcoin-NG protocol through large-scale experiments.
 
 ---
@@ -54,3 +54,23 @@ Citation:
 	* leader election.
 	* transaction serialization.
 
+## Model and Goal
+
+- System:
+	- Set of nodes in a *reliable* peer-to-peer network.
+	- Each node can poll a random oracle.
+	- Nodes generate key pairs but no trusted pubkey infrastructure.
+- System cryptopuzzle system:
+	- Each node has a limited amount of computing power (mining power)
+	- Solution to a puzzle shows proof-of-work, indicates that node spent time to find the solution.
+- Any time, subset of nodes are *Byzantine*, the other nodes are honest.
+- The mining power of the Byzantine nodes is less than 1/4 of the total computing power of the network.
+
+### Nakamoto Consensus
+
+- Termination:
+	- Small probability that the same node will depict two different system states for time ``t``, at time ``t`` and ``t + delta``.
+- Agreement:
+	- Small probability that two nodes return different states for a time ``t-delta`` at time ``t``.
+- Validity:
+	- Average fraction of state machine transitions that are not inputs of honest nodes is smaller than f.
