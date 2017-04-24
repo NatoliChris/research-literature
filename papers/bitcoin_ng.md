@@ -74,3 +74,9 @@ Citation:
 	- Small probability that two nodes return different states for a time ``t-delta`` at time ``t``.
 - Validity:
 	- Average fraction of state machine transitions that are not inputs of honest nodes is smaller than f.
+
+## Bitcoin and Blockchain Protocol
+
+- Replicated state machine maintains balances of different users, transitions are the transactions that move funds.
+- A transaction is from the output of a previous transaction to an address.
+- An output is *spent* if it is the input of another transaction.
