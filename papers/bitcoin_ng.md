@@ -80,3 +80,62 @@ Citation:
 - Replicated state machine maintains balances of different users, transitions are the transactions that move funds.
 - A transaction is from the output of a previous transaction to an address.
 - An output is *spent* if it is the input of another transaction.
+- Miners accept transactions only if their sources have not been spent.
+- The miners commit the transaction onto a global *append-only* log, the **blockchain**.
+- The blockchain records transactions in units of blocks:
+	- Each block has a unique ID.
+	- The first block is the *genesis block*.
+	- A valid block contains:
+		- Solution to cryptopuzzle.
+		- The blcok's hash.
+		- A special *coinbase* transaction rewarding the miner.
+
+## Bitcoin-NG
+
+### Key blocks and Leader Election
+
+- Key blocks choose a leader, contains:
+	- reference to prev. block.
+	- current Unix time.
+	- coinbase transaction for reward.
+	- target value.
+	- nonce field.
+	- **public key** to be used in subsequent microblocks.
+- Difficulty is adjusted by deterministically changing target value based on Unix value in headers.
+- If fork - nodes choose heaviest chain (most work).
+
+### Microblocks
+
+- Leader generates microblocks at set rate.
+- Size bounded by predefined maximum.
+- If timestamp of microblock is in future ,microblock invalid.
+- Microblocks contain:
+	- Transactions (ledger entries).
+	- header:
+		- reference to prev. block.
+		- current Unix time.
+		- cryptographic hash of ledger entries.
+		- Crypto signature of header. (signed with priv. key matching pub of leader).
+- Microblocks do not affect weight of chain as they don't have any proof-of-work.
+
+### Confirmation Time
+
+- Microblock fork when blocks propagated after leader change.
+- Resolved once the new key block is received by node.
+	- Seeing a microblock should wait propagation time before checking which branch is main.
+
+### Remuneration
+
+- Leader compensated for mining.
+- Remuneration:
+	- Key block = set amount.
+	- Each transaction has fee.
+		- Current leader = 40% of fee.
+		- Subsequent leader = 60% of fee.
+- Can only be spent after 100 block maturity.
+
+### Microblock Fork Prevention
+
+- Don't require mining - as cheap/quick as the leader is allowed.
+- To demotivate fraud/double spending, dedicataed ledger entry that invalidates any revenue from malicious leaders.
+- **Poison Transaction**: header of first block in fork as *proof-of-fraud*.
