@@ -1,5 +1,7 @@
 # Blockchain consensus in the wild
 
+Christian Cachin - Marco Vukolic
+
 ```
 @article{cachin2017blockchains,
   title={Blockchains Consensus Protocols in the Wild},
