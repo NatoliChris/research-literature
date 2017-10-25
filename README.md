@@ -13,6 +13,7 @@ I will also be heavily referencing consensus and distributed computing literatur
 - [Algorand](papers/algorand.md)
 - [Blockchain Consensus in the Wild](papers/blockchain_consensus_wild.md)
 - [Proof-of-Luck](papers/proof_of_luck.md)
+- [Proof-of-Activity](papers/proof_of_activity.md)
 
 ## Blockchain Topics
 
