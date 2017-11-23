@@ -24,3 +24,7 @@ I will also be heavily referencing consensus and distributed computing literatur
     - [Verifying Transactions](blockchain/bitcoin/bitcoin_verifying_19042017.md)
 - Other
     - [PPCoin](blockchain/other/ppcoin.md)
+
+## Misc
+
+- [Silvio Micali Talk on Fast and Furious BA](misc/byzantine_agreement_micali.md)
