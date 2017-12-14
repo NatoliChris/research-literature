@@ -15,6 +15,7 @@ I will also be heavily referencing consensus and distributed computing literatur
 - [Proof-of-Luck](papers/proof_of_luck.md)
 - [Proof-of-Activity](papers/proof_of_activity.md)
 - [Eclipse Attack on Bitcoin](papers/eclipse_bitcoin.md)
+- [BitIodine](papers/bitiodine.md)
 
 ## Blockchain Topics
 
