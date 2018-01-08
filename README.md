@@ -16,6 +16,7 @@ I will also be heavily referencing consensus and distributed computing literatur
 - [Proof-of-Activity](papers/proof_of_activity.md)
 - [Eclipse Attack on Bitcoin](papers/eclipse_bitcoin.md)
 - [BitIodine](papers/bitiodine.md)
+- [Blockchain Consensus Layer and BFT](papers/blockchain_consensus_layer_vmware.md)
 
 ## Blockchain Topics
 
