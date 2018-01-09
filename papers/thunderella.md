@@ -171,3 +171,72 @@ Rafael Pass, Elaine Shi
         1. Proof-of-Stake and Proof-of-Work co-exist, while the difficulty rises.
         2. Stake holders will vote on transactions or blocks atop of existing PoW. Penalty based voting. Finally move to pure PoS.
     - However, not Ethereum's goal of instant transaction confirmation.
+
+## Definitions and Prelimnaries
+
+### Execution Model
+
+#### Modeling Protocol Execution
+
+- **Interactive Turing Machines**
+    - Nodes interact with each other and faithfully follow the protocol if honest.
+- **Round-based execution**
+    - Rounds model, atomic time steps. Honest output to the Environment (`Z`).
+- **Corruption Model**
+    - Crashed nodes are treated as faulty.
+    - Honest node
+        - Short-term outage.
+        - Long-term outage.
+        - Not controlled by adversary - do not see as corrupt.
+    - Motivation for not treating crashed nodes as corrupt is to allow for us to prove more powerful Theorem.
+        - Ensures consistency and worst-case liveness when ![`alpha`](https://latex.codecogs.com/gif.latex?%5Calpha) fraction honest but not online.
+        - ![`alpha`](https://latex.codecogs.com/gif.latex?%5Calpha) as small as 1 node.
+    - The Environment `Z`:
+        - Sleep nodes.
+        - Wake nodes.
+        - Spawn nodes.
+        - Kill nodes.
+        - Corrupt nodes.
+    - Formally define "online" as:
+        - Honest, not asleep.
+        - Corrupt, not killed.
+- **Communication Model**
+    - All honest and online can send messages to all other honest and online nodes.
+    - Adversary (`A`):
+        - Schedule message delivery.
+        - Reorder and delay messages (no modification of content).
+        - Send messages to subsets of nodes.
+    - Identity of sender is **unknown**.
+    - Communication Delay:
+        - ![`Delta`](https://latex.codecogs.com/gif.latex?%5CDelta)-bounded delay: all messages arrive at all nodes (online, waking up in round R, spawned in round R) in round R.
+            - Synchrony assumption?
+        - Environment (`Z`) inputs the maximal delay ![`Delta`](https://latex.codecogs.com/gif.latex?%5CDelta) to all honest nodes upon spawning.
+
+#### Constrained Execution Environments
+
+- (`A`, `Z`) respects certain constraints and assumptions.
+- *Permissionless Environment*:
+    - `n` nodes `pn` corrupt.
+    - (`A`, `Z`) respects ![`Delta`](https://latex.codecogs.com/gif.latex?%5CDelta)-bounded delay.
+    - `Z` informs all honest nodes.
+- **Corruption Constraints**
+    - General model by default allows for adaptive corruptions.
+    - `Z` never corrupts an honest node **after** spawning. Can spawn corrupt directly.
+- **Permissioned Model**:
+    - Z informs the honest nodes about all nodes, cannot kill a node.
+    - Assume nodes have identities ``0,1,...,n-1``.
+    - Two types of permissioned environments:
+        1. **Permissioned-Sleepy**
+            - Z spawns nodes upfront, no additional.
+            - At most `p` fraction honest nodes.
+            - Z does not issue `kill` instructions, only sleep and wake.
+            - Respects the delay.
+            - Informs all honest nodes of parameters.
+        2. **Permissioned-Classical**
+            - Z Spawns nodes upfront, no additional.
+            - Z never issues `sleep`, `wake`, `kill`.
+            - Respects delay.
+            - Corrupts at most `f` nodes.
+            - `Z` informs all honest nodes of the parameters.
+            - Classical distributed computing literature, honest and honest-online are the same.
+
