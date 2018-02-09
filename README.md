@@ -24,6 +24,9 @@ I will also be heavily referencing consensus and distributed computing literatur
     - [UTXO guide](blockchain/bitcoin/bitcoin_developer_guide_UTXO_30032017.md)
     - [Bitcoin the hard way](blockchain/bitcoin/bitcoin_hard_way_30032017.md)
     - [Verifying Transactions](blockchain/bitcoin/bitcoin_verifying_19042017.md)
+    - Lightning Network
+        - [Summary Docs](blockchain/bitcoin/lightning_summaries.md)
+        - [Article](blockchain/bitcoin/lightning.md)
 - Other
     - [PPCoin](blockchain/other/ppcoin.md)
 
